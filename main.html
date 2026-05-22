@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Striver's A2Z DSA Sheet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="flex h-screen">
+
+    <!-- Left Sidebar -->
+    <div class="w-16 bg-black border-r border-gray-800 flex flex-col items-center py-6 space-y-8">
+      <div class="flex flex-col items-center cursor-pointer" onclick="showDefaultRightSidebar()">
+        <i class="fa-solid fa-fire text-orange-500 text-3xl"></i>
+      </div>
+      
+      <div onclick="showSpotify()" class="flex flex-col items-center cursor-pointer hover:text-orange-400 transition-colors" title="Spotify">
+        <i class="fa-brands fa-spotify text-3xl"></i>
+        <span class="text-[10px] text-gray-500 mt-1">Music</span>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col overflow-auto">
+
+      <!-- Top Navigation Bar -->
+      <div class="bg-[#111] border-b border-gray-800 px-6 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-fire text-orange-500 text-2xl"></i>
+            <div>
+              <span class="font-semibold text-white">Striver's A2Z DSA</span>
+              <span class="text-gray-400 text-sm">Sheet</span>
+            </div>
+          </div>
+
+          <div class="flex bg-[#1a1a1a] rounded-2xl p-1 text-sm">
+            <button onclick="switchTab(0)" class="tab-btn px-6 py-2 rounded-xl font-medium active">All Problems</button>
+            <button onclick="switchTab(1)" class="tab-btn px-6 py-2 rounded-xl font-medium">Revision</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="relative w-72">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400"></i>
+            <input type="text" placeholder="Search problems..." 
+                   class="bg-[#1a1a1a] border border-gray-700 rounded-2xl pl-11 pr-4 py-2.5 w-full text-sm focus:outline-none focus:border-orange-500">
+          </div>
+
+          <button class="flex items-center gap-2 bg-[#1a1a1a] hover:bg-gray-700 px-5 py-2.5 rounded-2xl text-sm">
+            <i class="fa-solid fa-filter"></i> All problems
+          </button>
+
+          <button class="flex items-center gap-2 bg-[#1a1a1a] hover:bg-gray-700 px-5 py-2.5 rounded-2xl text-sm">
+            <i class="fa-solid fa-sort"></i> Difficulty
+          </button>
+
+          <button class="flex items-center gap-2 bg-orange-600 hover:bg-orange-500 px-6 py-2.5 rounded-2xl text-sm font-medium">
+            <i class="fa-solid fa-shuffle"></i> Random Problem
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Pill -->
+      <div class="mx-6 mt-6 bg-[#1c1408] border border-orange-900/50 rounded-3xl p-5 shadow-xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-5">
+            <div class="relative w-16 h-16">
+              <svg class="w-16 h-16 -rotate-90" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15" fill="none" stroke="#3a2a1f" stroke-width="6"></circle>
+                <circle cx="21" cy="21" r="15" fill="none" stroke="#f59e0b" 
+                        stroke-width="6" stroke-dasharray="94.2" stroke-dashoffset="94.2" stroke-linecap="round"></circle>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center text-xl font-bold text-orange-400">0%</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-400">Overall Progress</div>
+              <div class="text-2xl font-semibold text-white">0 / 474</div>
+            </div>
+          </div>
+
+          <div class="flex gap-8 text-sm">
+            <div><span class="text-green-400">●</span> Easy <span class="font-semibold">0/152</span></div>
+            <div><span class="text-yellow-400">●</span> Medium <span class="font-semibold">0/186</span></div>
+            <div><span class="text-red-400">●</span> Hard <span class="font-semibold">0/136</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topics + Right Sidebar Container -->
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Main Topics (70%) -->
+        <div class="flex-[7] p-6 overflow-hidden">
+
+  <div
+    class="h-full rounded-3xl border border-gray-800 bg-[#0f0f0f] overflow-hidden"
+  >
+
+    <div
+      class="h-full overflow-y-auto custom-scroll p-3 space-y-3"
+      id="topics-container"
+    ></div>
+
+  </div>
+
+</div>
+
+        <!-- Right Sidebar (30%) -->
+        <div class="flex-[3] bg-[#111] border-l border-gray-800 overflow-hidden flex flex-col" id="right-sidebar">
+          
+          <!-- Default Content -->
+          <div id="default-content" class="flex-1 p-6 overflow-auto custom-scroll">
+            <div class="bg-[#1a1a1a] border border-gray-700 rounded-3xl p-6 text-center">
+              <img src="https://picsum.photos/id/1015/300/220" class="rounded-2xl mx-auto mb-6 shadow-lg" alt="Motivation">
+              <p class="italic text-gray-300 text-sm leading-relaxed">
+                "One day, this struggle will become the story I'm proud to tell."
+              </p>
+              <div class="mt-8 text-xs text-gray-500">— Keep Going, Tanay</div>
+            </div>
+
+            <div class="mt-8 bg-[#1a1a1a] rounded-2xl p-4">
+              <div class="font-medium mb-2">Daily Goal</div>
+              <div class="text-orange-400 font-semibold">3 Problems</div>
+            </div>
+          </div>
+
+          <!-- Spotify Section -->
+          <div id="spotify-content" class="flex-1 hidden flex-col p-5 bg-black">
+            <div class="bg-[#0a0a0a] border border-gray-800 rounded-3xl overflow-hidden h-full flex flex-col shadow-2xl">
+
+              <!-- Header -->
+              <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-[#111] rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                  <i class="fa-brands fa-spotify text-green-500 text-2xl"></i>
+                  <span class="font-semibold text-white">Spotify</span>
+                </div>
+                <button onclick="showDefaultRightSidebar()" class="text-gray-400 hover:text-white">
+                  <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+              </div>
+
+              <!-- Rectangular Spotify Player -->
+              <div class="flex-1 p-4 bg-black">
+                <div class="bg-black h-full border border-gray-900 rounded-xl overflow-hidden shadow-inner">
+                  <iframe id="spotify-player" 
+                          class="w-full h-full rounded-xl border-0"
+                          src="https://open.spotify.com/embed/album/4a6NzYL1YHRUgx9e3YZI6I?utm_source=generator&theme=0" 
+                          allow="encrypted-media">
+                  </iframe>
+                </div>
+              </div>
+
+              <!-- Custom Playlist -->
+              <div class="p-5 border-t border-gray-800 bg-[#111] rounded-b-3xl">
+                <p class="text-xs text-gray-400 mb-3 px-1">Use your own playlist</p>
+                <div class="flex gap-2 bg-[#1a1a1a] rounded-2xl p-1">
+                  <input type="text" id="playlist-url" 
+                         placeholder="Paste Spotify Playlist Link"
+                         class="flex-1 bg-transparent border-0 px-5 py-3 text-sm focus:outline-none">
+                  <button onclick="loadCustomPlaylist()" 
+                          class="bg-green-500 hover:bg-green-600 px-8 rounded-[14px] text-sm font-medium">
+                    Load
+                  </button>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-3 px-2">
+                  Open Spotify → Share → Copy Link → Paste above
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

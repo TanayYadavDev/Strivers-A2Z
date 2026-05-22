@@ -1,0 +1,122 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #e5e7eb;
+  overflow: hidden;
+}
+
+/* Main Topic Header */
+
+.topic-header {
+  transition: all 0.2s ease;
+}
+
+.topic-header:hover {
+  background: #151515;
+}
+
+/* Subtopic Header */
+
+.subtopic-header {
+  transition: all 0.2s ease;
+}
+
+.subtopic-header:hover {
+  background: #141414;
+}
+
+/* Main Dropdown */
+
+.inner-content {
+  max-height: 0;
+  overflow: hidden;
+
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inner-content.open {
+  max-height: 5000px;
+}
+
+/* Nested Dropdown */
+
+.nested-subcontent {
+  max-height: 0;
+  overflow: hidden;
+
+  transition:
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nested-subcontent.open {
+  max-height: 4000px;
+}
+
+/* Table */
+
+table {
+  border-collapse: collapse;
+}
+
+thead th {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+tbody td {
+  font-size: 13px;
+}
+
+/* Difficulty Badge */
+
+.difficulty-badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.difficulty-badge.easy {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+}
+
+.difficulty-badge.medium {
+  background: rgba(234, 179, 8, 0.12);
+  color: #facc15;
+}
+
+.difficulty-badge.hard {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+}
+
+/* Scrollbar */
+
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 999px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Tab Buttons */
+
+.tab-btn.active {
+  background: #2a2a2a;
+  color: white;
+}
+
+/* Smooth Icons */
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
