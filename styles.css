@@ -68,28 +68,37 @@ tbody td {
   font-size: 13px;
 }
 
-/* Difficulty Badge */
-
-.difficulty-badge {
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
+.difficulty-badge{
+    padding:4px 12px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:54px;
+    border:1px solid transparent;
 }
 
-.difficulty-badge.easy {
-  background: rgba(34, 197, 94, 0.12);
-  color: #4ade80;
+/* Easy */
+.difficulty-badge.easy{
+    color:#22c55e;
+    background:rgba(34,197,94,0.12);
+    border-color:rgba(34,197,94,0.18);
 }
 
-.difficulty-badge.medium {
-  background: rgba(234, 179, 8, 0.12);
-  color: #facc15;
+/* Medium */
+.difficulty-badge.medium{
+    color:#facc15;
+    background:rgba(250,204,21,0.12);
+    border-color:rgba(250,204,21,0.18);
 }
 
-.difficulty-badge.hard {
-  background: rgba(239, 68, 68, 0.12);
-  color: #f87171;
+/* Hard */
+.difficulty-badge.hard{
+    color:#ef4444;
+    background:rgba(239,68,68,0.12);
+    border-color:rgba(239,68,68,0.18);
 }
 
 /* Scrollbar */
